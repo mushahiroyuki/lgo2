@@ -11,7 +11,7 @@
   </li>
 
 <li>  
-  本について詳しくは<a href="https://www.marlin-arms.com/support/learning-go2/">サポートページ</a>をご覧ください。
+  本について詳しくは<a href="https://www.marlin-arms.com/support/larning-go2/">サポートページ</a>をご覧ください。
   </li>
 </div>
 
@@ -35,8 +35,8 @@
 |exercise/ch03       |3章の練習問題    |
 |...        |...         |
 |exercise/ch15       |15章の練習問題   |
-|exercise/ch21a      |付録Aの練習問題   |
-|exercise/ch22b      |付録Bの練習問題   |
+## |exercise/ch21a      |付録Aの練習問題   |
+## |exercise/ch22b      |付録Bの練習問題   |
 
 
 

@@ -1,6 +1,6 @@
-package main
+package main // パッケージ宣言
 
-import "fmt"
+import "fmt" // インポート宣言
 
 func main() {
 	fmt.Println("Hello, world!")
