@@ -35,8 +35,9 @@
 |exercise/ch03       |3章の練習問題    |
 |...        |...         |
 |exercise/ch15       |15章の練習問題   |
-## |exercise/ch21a      |付録Aの練習問題   |
-## |exercise/ch22b      |付録Bの練習問題   |
+
+<!--  |exercise/ch21a      |付録Aの練習問題   |
+ |exercise/ch22b      |付録Bの練習問題   | -->
 
 
 
