@@ -53,4 +53,8 @@ ch23c-org.re
 nohup.out
 *mine.txt
 00DIARY.txt
+*.save
+*-nogood
+*-eng.go
+*.exe
 
