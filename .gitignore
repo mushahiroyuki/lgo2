@@ -57,4 +57,6 @@ nohup.out
 *-nogood
 *-eng.go
 *.exe
-
+*.old/*
+*-origin.go
+*v1only
