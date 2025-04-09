@@ -1,0 +1,2 @@
+advanced/topic1.txtの内容
+This is advanced topic 1.

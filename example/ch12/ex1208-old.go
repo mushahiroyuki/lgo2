@@ -1,0 +1,31 @@
+package main
+
+import "fmt"
+
+func countTo(max int) (<-chan int, func()) { //liststart
+	ch := make(chan int)
+	cancelFunc := func() { // chをクローズする関数を戻す
+		close(ch)
+	}
+
+	go func() {
+		for i := 0; i < max; i++ {
+			ch <- i                
+		}
+		cancelFunc()
+	}()
+
+	return ch, cancelFunc
+}
+
+func main() {
+ 	ch, cancelFunc := countTo(10)
+	for i := range ch {
+		fmt.Print(i, " ")
+		
+		if i >= 5 {  // 途中で抜けたくなったら（抜ける条件が整ったら）
+			cancelFunc() // chをクローズしてforループを終了する
+		}
+	}
+	fmt.Println()
+} //listend

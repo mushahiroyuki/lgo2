@@ -1,0 +1,120 @@
+package main
+
+import (
+	"fmt"
+	"strings"
+	"time"
+	"math/rand"  // 乱数。強力なものが必要ならcrypto/randを使う
+)
+
+type convFunc func(string, chan string, int)
+
+func main() {
+	rand.Seed(time.Now().UnixNano()) //乱数のseed。’70年1月1日0時からのナノ秒数
+
+	strConvFuncs := []convFunc{strings.ToLower, strings.ToTitle}
+	s := "Time flies like an arrow." // 変換元の文字列
+	r := []string{s}  // 最終結果。最初の要素は s
+	fmt.Println("オリジナル:", s)
+	s2 := getVariations(s, strConvFuncs)
+	r = append(r, s2...)
+	fmt.Println("結果:", r)
+
+	time.Sleep(1*time.Second) 
+	fmt.Println("main終了")
+}
+
+/*
+func prepareConversionFuncs([]convFunc) []convFunc {
+	var r []convFunc
+	for i:=0; i<2; i++ {
+		r = append(r, func(s string, ch chan string, j int) {
+			sleepRandomPeriod(j)
+			if j==0 {
+				s = strings.ToLower(s)
+			}	else {
+				s = strings.ToTitle(s)
+			}
+			fmt.Printf("処理完了（%d）: %s\n", j, s)
+			ch <- s
+			close(ch)	// 送り終わったらchをクローズ
+		}) // append
+	}
+	return r
+*/
+	/*
+	
+	for i, f := range stringFuncs {
+		fmt.Println("f:", f)
+		i := i
+		r = append(r,	func(s string, ch chan string) {
+			sleepRandomPeriod(i)
+			s = f(s) // 変換する関数 0: 小文字化 1: 大文字化
+			fmt.Printf("処理完了（%d）: %s\n", i, s)
+			ch <- s
+			close(ch)	// 送り終わったらchをクローズ
+		})
+	}
+	return r
+  */
+/*
+}
+*/
+
+func getVariations(s string, converters []convFunc) []string {
+	done := make(chan struct{}) //doneチャネル。doneチャネルの例参照
+	chans := []chan string{make(chan string), make(chan string)}
+
+	for i, f := range converters {
+		go func(s string, chan string, i int) {
+			i, f := i, f
+			f(s
+
+		f(s, chans[i], i)
+			()
+	}
+
+	r := []string{} // 結果のスライス。変化形をもどす
+	// select は クローズされているチャネルを読むといつも成功しゼロ値が戻る
+	for {
+		select {
+		case v, ok := <- chans[0]: // 1回目はvに入る。2回目はcloseされている
+			if !ok { // inはクローズされていた
+				chans[0] = nil // nilチャネルからは何も読み込まない。したがってこのcaseは再度成功することはない
+				if len(r)>=2 {
+					close(done)
+				}
+				fmt.Println("will continue: chan0")
+				continue
+			}
+			fmt.Println("appending:", v)
+			r = append(r, v)
+		case v, ok := <- chans[1]:
+			if !ok { // in2はクローズされていた
+				chans[1] = nil // このcaseは再度成功することはない
+				if len(r)>=2 {
+					close(done)
+				}
+				fmt.Println("will continue: chan1")
+				continue
+			}
+			fmt.Println("appending:", v)
+			r = append(r, v)
+		case <-done:
+			fmt.Println("case <-done選択")
+			return r
+		}
+	}
+}
+
+func randomPeriod() time.Duration{
+	t := time.Millisecond * time.Duration(rand.Intn(4)+2)
+	return t
+}
+
+
+func sleepRandomPeriod(funcNum int) {
+	t := randomPeriod()
+	fmt.Println(funcNum, "will sleep: ", t)
+	time.Sleep(t)
+}

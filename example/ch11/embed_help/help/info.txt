@@ -1,0 +1,2 @@
+info.txtの内容
+This is some basic info that you want to know about
