@@ -8,7 +8,7 @@ func main() {
 	y = append(y, "z")
 	y = append(y, "1")	
 	y = append(y, "2")	
-	fmt.Println("x:", x) // x: [a b z d]
-	fmt.Println("y:", y) // y: [a b z]  //listend
+	fmt.Println("x:", x) // x: [a b z 1]
+	fmt.Println("y:", y) // y: [a b z 1 2]  //listend
 	fmt.Println(cap(x), cap(y)) // 4 8 
 }

@@ -21,8 +21,8 @@ func main() {
 	chOut := make(chan string) // stringのチャネルを生成。受信用
 	go runThingsConcurrently(chIn, chOut)
 
-	vals := []int{1, 2, 3, 4, 5}
-	for v := range vals { // スライスvalsの各要素に対して
+	vals := []int{10, 1, 2, 3, 4, 5}
+	for _, v := range vals { // スライスvalsの各要素に対して
 		chIn <- v   // その値をchInに送信
 	}
 

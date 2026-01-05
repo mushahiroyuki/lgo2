@@ -12,8 +12,8 @@ func main() {
 	fmt.Println("3:", cap(x), cap(y)) // 3: 4 4
 	y = append(y, "2")	
 	fmt.Println("4:", cap(x), cap(y)) // 4: 4 8
-	fmt.Println("x:", x) // x: [a b z d]
-	fmt.Println("y:", y) // y: [a b z]
+	fmt.Println("x:", x) // x: [a b z 1]
+	fmt.Println("y:", y) // y: [a b z 1 2]
 	fmt.Println(cap(x), cap(y)) // 4 8  //listend
 }
 
