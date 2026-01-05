@@ -1,5 +1,13 @@
 # 初めてのGo言語 第2版
 
+## お知らせ
+ ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+ 
+ 訳者入院に伴い、お返事が遅れます。あしからずご了承ください。
+ 
+ ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+
+
 <img src="https://www.marlin-arms.com/jpn/arts/books-small/learning-go2.png?v=2" width="200px">
 
 [オライリー・ジャパン](https://www.oreilly.co.jp/)発行の『[初めてのGo言語 第2版](https://www.marlin-arms.com/support/learning-go2/)』（2025年8月初旬発売予定）の例題および練習問題の解答例のリポジトリです。
